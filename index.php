@@ -67,6 +67,41 @@ Function BuatKlaimBaru($request, $response, $args) {
 	$response->write($result);	
 	return $response;	
 }
+
+Function HapusKlaim($request, $response, $args) {	
+	
+	$json = '{
+   "metadata":{
+      "method":"delete_claim"
+   },
+   "data":{
+      "nomor_sep":"'.$request->getParsedBody()['nosep'].'",
+      "coder_nik":"'.getCoderNik().'"
+	}}';
+
+
+
+	$json = mc_encrypt ($json, getKey());
+
+	$ch = curl_init(getUrlWS());	
+
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+
+	$result = curl_exec($ch);
+	curl_close($ch);
+
+    $result = str_replace ('----BEGIN ENCRYPTED DATA----', '', $result);
+	$result = str_replace ('----END ENCRYPTED DATA----', '', $result);
+	$result = mc_decrypt (getKey(), $result);			    
+    $response->write($result);	
+
+
+	$response->write($result);	
+	return $response;	
+}
+
 Function IsiDataKlaim($request, $response, $args) {	
 	$nosep = $request->getParsedBody()['nosep'];
 	$nokartu = $request->getParsedBody()['nokartu'];
