@@ -12,6 +12,7 @@ $app = new Slim\App();
 $app->get('/', 'Depan');
 $app->post('/test', 'test');
 $app->post('/BuatKlaimBaru', 'BuatKlaimBaru');
+$app->post('/HapusKlaim', 'HapusKlaim');
 $app->post('/IsiDataKlaim', 'IsiDataKlaim');
 $app->post('/AmbilDataKlaim', 'AmbilDataKlaim');
 $app->post('/Grouper1', 'Grouper1');
@@ -101,6 +102,7 @@ Function HapusKlaim($request, $response, $args) {
 	$response->write($result);	
 	return $response;	
 }
+
 
 Function IsiDataKlaim($request, $response, $args) {	
 	$nosep = $request->getParsedBody()['nosep'];
