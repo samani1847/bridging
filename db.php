@@ -10,4 +10,13 @@ function getUrlWS() {
 	return $UrlWS;
 }
 
+function getCoderNik(){
+	$nik = 'xxxx';
+	return $nik;
+}
+
+function getKodeTarif(){
+	$kode = 'ss';
+	return $kode;
+}
 ?>

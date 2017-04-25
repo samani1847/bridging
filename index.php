@@ -89,10 +89,10 @@ Function IsiDataKlaim($request, $response, $args) {
 	$tarif_rs=$request->getParsedBody()['tarif_rs']; 
 	$tarif_poli_eks=$request->getParsedBody()['tarif_poli_eks']; 
 	$nama_dokter=$request->getParsedBody()['nama_dokter']; 
-	$kode_tarif=$request->getParsedBody()['kode_tarif']; 
+	// $kode_tarif=$request->getParsedBody()['kode_tarif']; 
 	$payor_id=$request->getParsedBody()['payor_id']; 
 	$payor_cd=$request->getParsedBody()['payor_cd']; 
-	$coder_nik=$request->getParsedBody()['coder_nik']; 
+	// $coder_nik=$request->getParsedBody()['coder_nik']; 
 	
 	
 	
@@ -123,10 +123,10 @@ Function IsiDataKlaim($request, $response, $args) {
       "tarif_rs":"'.$tarif_rs.'",
       "tarif_poli_eks":"'.$tarif_poli_eks.'",
       "nama_dokter":"'.$nama_dokter.'",
-      "kode_tarif":"'.$kode_tarif.'",
+      "kode_tarif":"'.getKodeTarif().'",
       "payor_id":"'.$payor_id.'",
       "payor_cd":"'.$payor_cd.'",
-      "coder_nik":"'.$coder_nik.'"
+      "coder_nik":"'.getCoderNik().'"
    }
 }';
    //print_r($json);
@@ -244,7 +244,7 @@ Function Grouper2($request, $response, $args) {
 
 Function FinalKlaim($request, $response, $args) {	
 	$nosep = $request->getParsedBody()['nosep'];
-	$coder_nik= $request->getParsedBody()['coder_nik'];
+	// $coder_nik= $request->getParsedBody()['coder_nik'];
 	
 	$json = '{  
    "metadata":{  
@@ -252,7 +252,7 @@ Function FinalKlaim($request, $response, $args) {
    },
    "data":{  
       "nomor_sep":"'.$nosep.'",
-      "coder_nik":"'.$coder_nik.'"
+      "coder_nik":"'.getCoderNik().'"
    }
 }';
 	$json = mc_encrypt ($json, getKey());
