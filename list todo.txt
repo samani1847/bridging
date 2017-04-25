@@ -1,0 +1,19 @@
+nosep 1101R02412160000002
+nokartu 0000076283482
+nokartu 0000076283482
+nokartu 0000000000099
+
+
+LIST SERVICE SEP
+
+Insert SEP   OK
+Update Tanggal Pulang OK
+Update SEP    OK 
+Hapus SEP    OK
+Mapping Transaksi SEP   OK
+Detail SEP Peserta    OK
+Monitoring Verifikasi Klaim
+Data Kunjungan Peserta
+Data Riwayat Pelayanan Peserta  OK
+Integrasi SEP dengan InaCBG 4.1
+
