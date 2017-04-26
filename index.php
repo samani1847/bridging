@@ -1,6 +1,6 @@
 <?php
-require 'vendor/autoload.php';
 require 'db.php';
+require 'Slim/Slim.php';
 use Slim\Http\Request;
 use Slim\Http\Response;
 use Slim\App;
