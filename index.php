@@ -29,6 +29,7 @@ function Depan() {
   echo "Halaman Depan";
 }
 
+
 function BuatKlaimBaru() {	
 	global $app;
 	$json = '{
