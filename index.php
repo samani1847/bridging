@@ -29,7 +29,9 @@ function Depan() {
   echo "Halaman Depan";
 }
 
-function BuatKlaimBaru() {	
+function BuatKlaimBaru() {
+	$app = global $app;
+		
 	echo $app->request()->post();
 	// $json = '{
  //   "metadata":{
