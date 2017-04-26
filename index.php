@@ -6,10 +6,11 @@ use Slim\Http\Response;
 use Slim\App;
 
 
-$app = new Slim\App();
+$app = new Slim();
 
 
-$app->get('/', 'Depan');
+$app->get('/', 'BuatKlaimBaru');
+$app->get('/coba', 'test');
 $app->post('/test', 'test');
 $app->post('/BuatKlaimBaru', 'BuatKlaimBaru');
 $app->post('/HapusKlaim', 'HapusKlaim');
