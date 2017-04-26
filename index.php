@@ -30,42 +30,42 @@ function Depan() {
 }
 
 function BuatKlaimBaru() {	
-	echo $app->request()->post();
-	// $json = '{
- //   "metadata":{
- //      "method":"new_claim"
- //   },
- //   "data":{
- //      "nomor_kartu":"'.$app->request()->post('nokartu').'",
- //      "nomor_sep":"'.$app->request()->post('nosep').'",
- //      "nomor_rm":"'.$app->request()->post('norm').'",
- //      "nama_pasien":"'.$app->request()->post('namapasien').'",
- //      "tgl_lahir":"'.$app->request()->post('tgllahir').'",
- //      "gender":"'.$app->request()->post('jeniskelamin').'"
-	// }}';
+	global $app;
+	$json = '{
+   "metadata":{
+      "method":"new_claim"
+   },
+   "data":{
+      "nomor_kartu":"'.$app->request()->post('nokartu').'",
+      "nomor_sep":"'.$app->request()->post('nosep').'",
+      "nomor_rm":"'.$app->request()->post('norm').'",
+      "nama_pasien":"'.$app->request()->post('namapasien').'",
+      "tgl_lahir":"'.$app->request()->post('tgllahir').'",
+      "gender":"'.$app->request()->post('jeniskelamin').'"
+	}}';
 
 
 
-	// $json = mc_encrypt ($json, getKey());
+	$json = mc_encrypt ($json, getKey());
 
-	// $ch = curl_init(getUrlWS());	
+	$ch = curl_init(getUrlWS());	
 
-	// curl_setopt($ch, CURLOPT_POST, 1);
-	// curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
-	// curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	curl_setopt($ch, CURLOPT_POST, 1);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $json);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-	// $result = curl_exec($ch);
-	// curl_close($ch);
+	$result = curl_exec($ch);
+	curl_close($ch);
 
- //    $result = str_replace ('----BEGIN ENCRYPTED DATA----', '', $result);
-	// $result = str_replace ('----END ENCRYPTED DATA----', '', $result);
-	// $result = mc_decrypt (getKey(), $result);			    
-	// $response = $app->response();
- //    $response->write($result);	
+    $result = str_replace ('----BEGIN ENCRYPTED DATA----', '', $result);
+	$result = str_replace ('----END ENCRYPTED DATA----', '', $result);
+	$result = mc_decrypt (getKey(), $result);			    
+	$response = $app->response();
+    $response->write($result);	
 
 
-	// $response->write($result);	
-	// return $response;	
+	$response->write($result);	
+	return $response;	
 }
 
 
